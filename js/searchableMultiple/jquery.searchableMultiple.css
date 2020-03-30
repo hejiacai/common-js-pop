@@ -1,0 +1,184 @@
+/*
+Author: David Qin
+E-mail: david@hereapp.cn
+Date: 2014-11-05
+*/
+
+.searchable-select-hide {
+    display: none !important;
+}
+
+.searchable-select {
+    display: inline-block;
+    min-width: auto;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    position: relative;
+    outline: none;
+}
+
+.searchable-select-holder {
+    padding: 0px 6px;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #DDD;
+    min-height: 25px;
+    line-height: 25px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin-top: 2px;
+}
+
+.searchable-select-caret {
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border-color: black transparent transparent transparent;
+    top: 14px !important;
+    bottom: 0;
+    border-style: solid;
+    border-width: 5px;
+    right: 0;
+    margin-right: 5px;
+}
+
+.searchable-select-dropdown {
+    position: absolute;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 4px;
+    border-top: none;
+    /*top: 28px;*/
+    left: 0;
+    right: 0;
+}
+
+.searchable-select-input {
+    margin-top: 5px;
+    border: 1px solid #CCC;
+    outline: none;
+    box-sizing: border-box;
+    /*width: 100%;*/
+    padding: 4px 4px 4px 4px;
+    width: calc(100% - 40px);
+    margin-left: 40px;
+}
+.searchable-select-input-check_all {
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    height: 22px;
+    line-height: 21px;
+    margin: 5px 0 0 0;
+    display: inline;
+    cursor: pointer;
+    color: #3D84B8;
+}
+
+.searchable-scroll {
+    margin-top: 4px;
+    position: relative;
+}
+
+.searchable-scroll.has-privious {
+    padding-top: 16px;
+}
+
+.searchable-scroll.has-next {
+    padding-bottom: 16px;
+}
+
+.searchable-has-privious {
+    top: 0;
+}
+
+.searchable-has-next {
+    bottom: 0;
+}
+
+.searchable-has-privious, .searchable-has-next {
+    height: 16px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    background-color: white;
+    line-height: 8px;
+    cursor: pointer;
+}
+
+.searchable-select-items {
+    max-height: 400px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.searchable-select-items::-webkit-scrollbar {
+    display: none;
+}
+
+.searchable-select-item {
+    padding: 5px 5px;
+    cursor: pointer;
+    min-height: 30px;
+    box-sizing: border-box;
+    transition: all 1s ease 0s;
+}
+
+.searchable-select-item.hover {
+    
+    background: #555;
+    color: white;
+}
+
+.searchable-select-item.selected {
+    background: #28A4C9;
+    color: white;
+}
+
+.searchable-select-item {
+    cursor: pointer;
+    margin: 0;
+    vertical-align: middle;
+    display: block;
+}
+.searchable-select-item input {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+.searchable-select-holder .seled {
+    height: 20px;
+    line-height: 20px;
+    display: inline;
+    float: left;
+    margin: 3px 8px 3px 0;
+    background: #E4F5FD;
+    padding: 0 0 0 4px;
+    font-size: 12px;
+    border: 1px solid #C0DFF4;
+    cursor: pointer;
+}
+.searchable-select-holder {
+    height: auto;
+    display: inline-block;
+    /*width: 94%;*/
+    width: calc(100% - 13px);
+}
+.searchable-select-item-clear {
+    text-align: center;
+}
+.searchable-select-item-max_num {
+    color: #E06400;
+    margin: 0 5px;
+    font-weight: bold;
+}

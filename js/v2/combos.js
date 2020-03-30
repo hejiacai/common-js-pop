@@ -1,0 +1,1 @@
+if(!hbjs){throw new Error('缺少需要的模块文件，无法正常运行');}

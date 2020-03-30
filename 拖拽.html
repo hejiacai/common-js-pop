@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Jeremy  -  DragDrop Test !</title>
+<meta name="keywords" content="Javascript自由拖拽类" />
+<!--<script type="text/javascript" language="javascript" src="http://assets.huibo.com/js/jquery-1.8.3.min.js?v=20150226"></script>-->
+<style>
+	.clear{clear:both;height:0;line-height:0;overflow:hidden;font-size:0;}
+	.clearfix:after{
+		content:".";display:block;height:0;clear:both;visibility:hidden;
+	}
+	.clearfix{zoom:1; }
+	.item-box{position: relative}
+	.item-box .item{border:1px solid #999;color:#666;font-size:14px;width:800px;margin:5px 0;background:#fff;}
+	.item-box .item dt{float: left;padding:10px}
+	.item-box .item dd{float:left;padding:10px 10px 10px 0}
+	.iduaTionImgList:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+	.iduaTionImgList{zoom:1;margin:0 -10px;}
+	.iduaTionImgList li{
+		float:left;width:320px;padding:0 10px 20px;list-style: none
+	}
+	.iduaTionImgList li p{
+		display:block;height:96px;overflow:hidden;
+	}
+	.iduaTionImgList .iduaTionLit{
+		height:30px;line-height:30px;border-top:1px #fff solid;
+		background:#f5f5f5;overflow:hidden;text-align:right;
+	}
+	.iduaTionImgList .iduaTionLit em{
+		float:left;height:16px;line-height:16px;color:#fff;
+		padding:0 8px;border-radius:8px;background:#ccc;font-size: 12px;
+		margin:7px 0 0 7px;font-family: Arial, Helvetica, sans-serif;
+	}
+	.iduaTionImgList .iduaTionLit a{
+		width: 50px;height: 30px;line-height: 30px;text-align: center;display:inline-block;
+		color: #3d84ba;font-size: 12px;font-family: "宋体";border-left: 1px solid #fefefe;
+	}
+	.iduaTionImgList .iduaTionLit .red{
+		color:#f36865
+	}
+	.iduaTionImgList .iduaTionLit a:hover{
+		background:#3e84ba;color:#fff;
+	}
+	.iduaTionImgList .iduaTionLit a.red:hover{
+		background:#f36865;color:#fff;
+	}
+</style>
+<script type="text/javascript" src="js/v2/hbjs.js"></script>
+<script type="text/javascript" src="js/v2/jquery.min.js"></script>
+<script type="text/javascript" src="js/v2/base/util.js"></script>
+<script type="text/javascript" src="js/v2/base/class.js"></script>
+<script type="text/javascript" src="js/v2/base/shape.js"></script>
+<script type="text/javascript" src="js/v2/base/event.js"></script>
+<script type="text/javascript" src="js/v2/base/aspect.js"></script>
+<script type="text/javascript" src="js/v2/base/attribute.js"></script>
+<script type="text/javascript" src="js/v2/tools/cookie.js"></script>
+</head>
+<body>
+	<div class="item-box" id="foo">
+		<dl class="item clearfix" data-id="1">
+			<dt><a href=""><img src="http://img1.huibo.com/CompanyImages/a_dv_img/latest_recommend_pic/41.jpg" /></a></dt>
+			<dd>1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。</dd>
+			<dd>环境监理员<strong>￥1800~3600 元/月</strong></dd>
+            <p class="tile__name"><img width="320" height="96" src="http://assets.huibo.com/img/templates//20.jpg"></p>
+		</dl>
+		<dl class="item clearfix" data-id="2">
+			<dt><a href=""><img src="http://img2.huibo.com/CompanyImages/a_dv_img/12022_490152.png" /></a></dt>
+			<dd>1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。</dd>
+			<dd>环境监理员<strong>￥1800~3600 元/月</strong></dd>
+		</dl>
+		<dl class="item clearfix" data-id="3">
+			<dt><a href=""><img src="http://img1.huibo.com/CompanyImages/a_dv_img/12784_15464840.jpg" /></a></dt>
+			<dd>1、与甲方、工程监理沟通与协调，取得必要的工程资料及信息<br />2、在专业监理工程师的指导下开展现场监理工作。</dd>
+			<dd>环境监理员<strong>￥1800~3600 元/月</strong><a href="javascript:void(0)" onclick="goup(this)">上移</a><a href="javascript:void(0)" onclick="godown(this)">下移</a></dd>
+		</dl>
+	</div>
+	<div id="iduaTionImgList">
+		<ul class="iduaTionImgList" style="width:800px;position:relative" id='multi1'>
+	    	<li class="tile" template_id="6" img_id="6890" data_type="0">
+            	<p class="tile__name"><img width="320" height="96" src="http://assets.huibo.com/img/templates//6.jpg"></p>
+                <div class="iduaTionLit tile__list"><em>1</em><a href="javascript:" class="swap">前移</a><a href="javascript:" class="red del">删除</a></div>
+            </li>
+            <li class="tile" template_id="3" img_id="4821" data_type="0">
+            	<p class="tile__name"><img width="320" height="96" src="http://assets.huibo.com/img/templates//3.jpg"></p>
+                <div class="iduaTionLit tile__list"><em>2</em><a href="javascript:" class="swap">前移</a><a href="javascript:" class="red del">删除</a></div>
+            </li>
+            <li class="tile" template_id="21" img_id="4979" data_type="0">
+            	<p class="tile__name"><img width="320" height="96" src="http://assets.huibo.com/img/templates//21.jpg"></p>
+                <div class="iduaTionLit tile__list"><em>3</em><a href="javascript:" class="swap">前移</a><a href="javascript:" class="red del">删除</a></div>
+            </li>
+            <li class="tile" template_id="20" img_id="6895" data_type="0">
+            	<p class="tile__name"><img width="320" height="96" src="http://assets.huibo.com/img/templates//20.jpg"></p>
+                <div class="iduaTionLit tile__list"><em>4</em><a href="javascript:" class="swap">前移</a><a href="javascript:" class="red del">删除</a></div>
+            </li>
+        </ul>
+	</div>
+    
+    <script type="text/javascript">
+    
+		hbjs.use('widge.sortable', function(Drop, $){
+			
+			
+			var drop = new Drop({
+				element: $('#foo')
+			});
+		
+			var drop1 = new Drop({
+				element: $('#multi1')
+			});
+			
+		});
+    
+    </script>
+    
+	<!--<script src="Sortable.js"></script>-->
+
+	<!--
+	<script>	
+		(function (){
+			var explorer =navigator.userAgent ;			
+			if (explorer.indexOf("MSIE") >= 0) {
+				return;
+			}
+			
+			var console = window.console;
+
+			if( !console.log ){
+				console.log = function (){
+					alert([].join.apply(arguments, ' '));
+				};
+			}
+			window.x = new Sortable(foo, {
+				group: "words",
+				store: {
+					get: function (sortable) {
+						var order = localStorage.getItem(sortable.options.group);
+						return order ? order.split('|') : [];
+					},
+					set: function (sortable) {
+						var order = sortable.toArray();
+						localStorage.setItem(sortable.options.group, order.join('|'));
+					}
+				},
+				onAdd: function (evt){ console.log('onAdd.foo:', evt.item); },
+				onUpdate: function (evt){ console.log('onUpdate.foo:', evt.item); },
+				onRemove: function (evt){ console.log('onRemove.foo:', evt.item); },
+				onStart:function(evt){ console.log('onStart.foo:',evt.item);},
+				onEnd: function(evt){ console.log('onEnd.foo:', evt.item);}
+			});	
+			new Sortable(multi1, {
+				draggable: '.tile',
+				handle: '.tile'
+			});	
+		})();
+		function goup(obj){
+			var _item = $(obj).parents("dl");
+			_item.after(_item.prev());
+			return false;
+		}
+		function godown(obj){
+			var _item = $(obj).parents("dl");
+			_item.next().after(_item);
+			return false;
+		}
+	</script>
+    -->
+</body>
+</html>
